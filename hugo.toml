@@ -1,4 +1,4 @@
-baseURL = 'https://samoyed-02.github.io/'
+baseURL = 'https://github.com/Samoyed-02/Samoyed-02.github.io'
 languageCode = 'ko-kr'
 title = 'Samoyed-02 기술 블로그'
 theme = 'PaperMod'
