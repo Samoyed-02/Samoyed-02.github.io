@@ -23,7 +23,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.140.0 # 내 로컬 환경과 비슷하게 세팅되도록 기본 버전 지정
+      HUGO_VERSION: 0.158.0 # 내 로컬 환경과 비슷하게 세팅되도록 기본 버전 지정
     steps:
       - name: Install Hugo CLI
         run: |
