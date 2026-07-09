@@ -5,3 +5,30 @@ theme = 'PaperMod'
 
 [params]
     mainSections = ["posts"]
+    # 글 읽을 때 우측에 목차(Table of Contents)를 자동으로 띄워주는 설정
+    ShowToc = true
+    TocOpen = true # 글을 열었을 때 목차가 기본으로 펄쳐져 있게 설정
+
+# 좌측 사이드바에 들어갈 메뉴 구성 (정렬 순서는 weight로 조절)
+[[menu.main]]
+    name = "Java"
+    url = "/categories/java/"
+    weight = 10
+
+[[menu.main]]
+    name = "Spring Boot"
+    url = "/categories/spring-boot/"
+    weight = 20
+
+[[menu.main]]
+    name = "Algorithm"
+    url = "/posts/" # 일단은 전체 글 목록으로 연결할 때
+    weight = 30
+
+    [params.profileMode]
+        enabled = true
+        title = "Samoyed-02"
+        subtitle = "백엔드 개발 및 보안 기록 블로그"
+        imageUrl = "/images/IMG_0252.jpeg"
+        imageWidth = 120
+        imageHeight = 120
