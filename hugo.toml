@@ -1,0 +1,6 @@
+baseURL = 'https://Samoyed-02.github.io/'
+languageCode = 'ko-kr'
+title = 'Samoyed-02 기술 블로그'
+theme = 'PaperMod'
+[params]
+    mainSections = ["posts"]
