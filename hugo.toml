@@ -1,34 +1,58 @@
 baseURL = 'https://samoyed-02.github.io/'
 languageCode = 'ko-kr'
-title = 'Samoyed-02 기술 블로그'
-theme = 'PaperMod'
+title = 'Samoyed Devlog'
+theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
-    mainSections = ["posts"]
-    # 글 읽을 때 우측에 목차(Table of Contents)를 자동으로 띄워주는 설정
+    env = "production"
+    description = "백엔드 개발 및 보안 기록 블로그"
+    
+    # 우측 목차(TOC) 기본 활성화
     ShowToc = true
-    TocOpen = true # 글을 열었을 때 목차가 기본으로 펄쳐져 있게 설정
+    TocOpen = true
+    showCodeCopyButtons = true
 
-# 좌측 사이드바에 들어갈 메뉴 구성 (정렬 순서는 weight로 조절)
+# 요청하신 카테고리 구성 (우측 상단 바에서 좌측 사이드바로 이동시킬 대상)
 [[menu.main]]
     name = "Java"
     url = "/categories/java/"
     weight = 10
 
 [[menu.main]]
-    name = "Spring Boot"
-    url = "/categories/spring-boot/"
+    name = "Python"
+    url = "/categories/python/"
     weight = 20
 
 [[menu.main]]
-    name = "Algorithm"
-    url = "/posts/" # 일단은 전체 글 목록으로 연결할 때
+    name = "Kotlin"
+    url = "/categories/kotlin/"
     weight = 30
 
-    [params.profileMode]
-        enabled = true
-        title = "Samoyed-02"
-        subtitle = "백엔드 개발 및 보안 기록 블로그"
-        imageUrl = "/images/IMG_0252.jpeg"
-        imageWidth = 120
-        imageHeight = 120
+[[menu.main]]
+    name = "Spring-Boot"
+    url = "/categories/spring/"
+    weight = 40
+
+[[menu.main]]
+    name = "Algorithm"
+    url = "/categories/algorithm/"
+    weight = 50
+
+[[menu.main]]
+    name = "Web"
+    url = "/categories/web/"
+    weight = 60
+
+[[menu.main]]
+    name = "Git"
+    url = "/categories/git/"
+    weight = 70
+
+[[menu.main]]
+    name = "GitHub Blog"
+    url = "/posts/"
+    weight = 80
