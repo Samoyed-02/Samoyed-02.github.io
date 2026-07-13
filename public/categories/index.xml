@@ -6,6 +6,21 @@
     <description>Recent content in Categories on Samoyed Devlog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Retrospective</title>
+      <link>http://localhost:1313/categories/retrospective/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/retrospective/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>http://localhost:1313/categories/java/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/java/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

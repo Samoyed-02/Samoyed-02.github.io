@@ -6,30 +6,109 @@
     <description>Recent content on Samoyed Devlog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 09 Jul 2026 22:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enlist-Korea</title>
+      <link>http://localhost:1313/projects/enlist-korea/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/enlist-korea/</guid>
+      <description>군 입영 지원 올인원 플랫폼</description>
+    </item>
+    <item>
+      <title>Guard-up</title>
+      <link>http://localhost:1313/projects/guard-up/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/guard-up/</guid>
+      <description>RAG 기반 계약서 조항 분석 앱</description>
+    </item>
+    <item>
+      <title>PickStranger</title>
+      <link>http://localhost:1313/projects/pickstrange/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/pickstrange/</guid>
+      <description>로그인 관리 시스템</description>
+    </item>
+    <item>
+      <title>수원대 보물섬</title>
+      <link>http://localhost:1313/projects/dopamin-treasure/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/dopamin-treasure/</guid>
+      <description>수원대에서 보물찾기</description>
+    </item>
     <item>
       <title>[GitHub Blog] velog에서 GitHub 블로그로</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Thu, 09 Jul 2026 22:35:00 +0900</pubDate>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
       <description>velog에서 GitHub 블로그로 이전하게 된 계기와 장단점을 정리했습니다.</description>
     </item>
     <item>
+      <title>[멋쟁이사자처럼 1기] 3주차 활동에 대하여</title>
+      <link>http://localhost:1313/posts/likelion/likelion-3week/</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/likelion/likelion-3week/</guid>
+      <description>3주차 활동 및 미션 회고록입니다.</description>
+    </item>
+    <item>
+      <title>[멋쟁이사자처럼 1기] 2주차 활동에 대하여</title>
+      <link>http://localhost:1313/posts/likelion/likelion-2week/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/likelion/likelion-2week/</guid>
+      <description>2주차 활동 및 미션 회고록입니다.</description>
+    </item>
+    <item>
+      <title>[멋쟁이사자처럼 1기] 1주차 활동에 대하여</title>
+      <link>http://localhost:1313/posts/likelion/likelion-1week/</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/likelion/likelion-1week/</guid>
+      <description>1주차 활동 및 미션 회고록입니다.</description>
+    </item>
+    <item>
+      <title>[2026 한이음] 보안 전공자가 만드는 사회 공헌: 자립 준비 청년을 위한 &#39;안심 계약 AI</title>
+      <link>http://localhost:1313/posts/guard-up-ideation/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/guard-up-ideation/</guid>
+      <description>아이데이션 과정을 정리</description>
+    </item>
+    <item>
+      <title>객체지향적 설계란</title>
+      <link>http://localhost:1313/posts/java/solid/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/java/solid/</guid>
+      <description>객체지향적 설계에 대한 내용을 정리해보았습니다.</description>
+    </item>
+    <item>
       <title></title>
+      <link>http://localhost:1313/projects/likelion-cms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/likelion-cms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/projects/walk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/walk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h2 id=&#34;안녕하세요-samoyed입니다-&#34;&gt;안녕하세요, Samoyed입니다 👋&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;오늘도-뭔가-하나는-배웠을-겁니다&#34;&gt;오늘도 뭔가 하나는 배웠을 겁니다.&lt;/h2&gt;
+&lt;div class=&#34;profile-row&#34;&gt;
 &lt;figure class=&#34;profile-photo&#34;&gt;
     &lt;img loading=&#34;lazy&#34; src=&#34;27C96B61-972A-4FE9-A6AF-6F562C0A33D2.jpeg&#34;
-         alt=&#34;프로필사진&#34; width=&#34;500&#34;/&gt; 
+         alt=&#34;프로필사진&#34; width=&#34;280&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;div class=&#34;profile-info&#34;&gt;
   &lt;p&gt;&lt;i class=&#34;fa-solid fa-location-dot&#34;&gt;&lt;/i&gt; Suwon, Korea&lt;/p&gt;
   &lt;p&gt;&lt;i class=&#34;fa-brands fa-github&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://github.com/Samoyed-02&#34;&gt;github.com/Samoyed-02&lt;/a&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;i class=&#34;fa-solid fa-envelope&#34;&gt;&lt;/i&gt; gus02031365@gmail.com&lt;/p&gt;
+  &lt;p&gt;&lt;i class=&#34;fa-solid fa-envelope&#34;&gt;&lt;/i&gt; dbswjdgus888@naver.com&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
   </channel>

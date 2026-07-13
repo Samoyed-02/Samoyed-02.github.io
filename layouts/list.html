@@ -63,6 +63,31 @@
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
+{{- if eq .Type "projects" }}
+
+<div class="project-card">
+  <h3>{{ .Title }}</h3>
+  {{- if .Params.summary }}
+  <p>{{ .Params.summary }}</p>
+  {{- end }}
+  {{- with .Params.techStack }}
+  <div class="tech-stack">
+    {{- range . }}
+    <span class="tech-badge">{{ . }}</span>
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="project-card-footer">
+    <span class="project-more">자세히 보기 →</span>
+    {{- with .Params.githubUrl }}
+    <a class="project-github" href="{{ . }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">GitHub</a>
+    {{- end }}
+  </div>
+  <a class="entry-link" aria-label="project link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</div>
+
+{{- else }}
+
 <article class="{{ $class }}">
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
@@ -91,8 +116,9 @@
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
-{{- end }}
 
+{{- end }}
+{{- end }}
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
   <nav class="pagination">

@@ -15,6 +15,27 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
     ShowToc = true
     TocOpen = true
     showCodeCopyButtons = true
+    mainSections = ["none"]
+
+[params.homeInfoParams]
+    Title = "구경하다 가세요, 저도 아직 배우는 중이거든요 👋"
+    Content = """
+백엔드 개발자를 목표로 하는 4학년 학생입니다. 사용자에게 안정적인 서비스를 제공하는 백엔드를 만들고 싶습니다.
+
+### 🎯 목표
+Kotlin + Spring Boot 기반 핀테크 백엔드 개발자
+
+### 🛠 기술 스택
+- **Language**: Kotlin, Java, Python
+- **Framework**: Spring Boot, Django, FastAPI
+- **DB**: PostgreSQL, Redis
+- **Tools**: Git, Docker
+
+### 📌 주요 프로젝트
+- **Guard-up** — RAG 기반 계약서 조항 분석 앱 (CLOVA OCR, KLUE-NER, GPT-4o)
+- **PickStranger** — gRPC 기반 로그인 위험도 분석 리버스 프록시
+- **남한산성 관광 앱** — FastAPI + PostGIS + Kakao Maps 연동 여행 서비스
+"""
 
 # 요청하신 카테고리 구성 (우측 상단 바에서 좌측 사이드바로 이동시킬 대상)
 [[menu.main]]
@@ -23,17 +44,17 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
     weight = 10
 
 [[menu.main]]
-    name = "Python"
-    url = "/categories/python/"
+    name = "Kotlin"
+    url = "/categories/kotlin/"
     weight = 20
 
 [[menu.main]]
-    name = "Kotlin"
-    url = "/categories/kotlin/"
+    name = "Python"
+    url = "/categories/python/"
     weight = 30
 
 [[menu.main]]
-    name = "Spring-Boot"
+    name = "Spring"
     url = "/categories/spring/"
     weight = 40
 
@@ -43,16 +64,16 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
     weight = 50
 
 [[menu.main]]
-    name = "Web"
-    url = "/categories/web/"
+    name = "Backend & Tools"
+    url = "/categories/backend-tools/"
     weight = 60
 
 [[menu.main]]
-    name = "Git"
-    url = "/categories/git/"
+    name = "회고"
+    url = "/categories/retrospective/"
     weight = 70
 
 [[menu.main]]
-    name = "GitHub Blog"
-    url = "/posts/"
+    name = "Projects"
+    url = "/projects/"
     weight = 80

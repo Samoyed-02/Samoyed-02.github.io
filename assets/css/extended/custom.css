@@ -16,26 +16,19 @@
         padding: 0 !important;
     }
 
-    .entry-header h2 {
-    font-size: 1.8rem !important;   /* 원하는 크기로 조절 */
-    }
-
-    .post-title {
-    font-size: 2.2rem !important;   /* 40px 정도가 기본, 원하는 크기로 조절 */
-    }
-
-    /* -------------------- 본문 폭 관련 변수 -------------------- */
+    /* -------------------- 레이아웃 여백 변수 -------------------- */
     :root {
-        --page-margin: 150px;      /* 화면 끝 ↔ 사이드바/TOC 여백 (전체 페이지 양쪽 여백) */
+        --page-margin: 150px;     /* 화면 끝 ↔ 사이드바/TOC 여백 */
         --sidebar-width: 240px;   /* 좌측 헤더 박스 폭 */
         --toc-width: 240px;       /* 우측 TOC 박스 폭 */
         --content-gap: 60px;      /* 사이드바/TOC ↔ 본문 사이 여백 */
 
+        /* PaperMod 내부 요소(entry-header 등)가 참조하는 변수 안전장치 */
         --main-width: 1300px !important;
         --gap: 24px !important;
     }
 
-    /* 바깥 컨테이너(.main)에만 마진 적용 → 여기서 좌/우 폭이 결정됨 */
+    /* -------------------- 본문 -------------------- */
     .main {
         display: block !important;
         margin-left: calc(var(--page-margin) + var(--sidebar-width) + var(--content-gap)) !important;
@@ -52,12 +45,45 @@
         padding-top: 40px !important;
     }
 
-     /* -------------------- 좌측 카테고리 박스 -------------------- */
+    .entry-header h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .post-title {
+        font-size: 2.2rem !important;
+    }
+
+    /* -------------------- 좌측 헤더: 타이틀+버튼 -------------------- */
+    .logo {
+        position: fixed !important;
+        top: 30px !important;
+        left: var(--page-margin) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        z-index: 1000 !important;
+    }
+
+    .logo a {
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        line-height: 1.3 !important;
+        white-space: nowrap !important;
+    }
+
+    .logo-switches,
+    .theme-toggle {
+        position: static !important;
+        margin: 0 !important;
+    }
+
+    /* -------------------- 좌측 카테고리 박스 -------------------- */
     .header {
         position: fixed !important;
-        left: 150px !important;
+        left: var(--page-margin) !important;
         top: 100px !important;
-        width: 240px !important;
+        width: var(--sidebar-width) !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         background: transparent !important;
@@ -76,39 +102,12 @@
         display: flex !important;
     }
 
-    /* -------------------- 타이틀+버튼 묶음을 통째로 좌상단 고정 -------------------- */
-    .logo {
-        position: fixed !important;
-        top: 30px !important;
-        left: 150px !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        margin: 0 !important;
-        z-index: 1000 !important;
-    }
-
-    .logo a {
-        font-size: 1.3rem !important;
-        font-weight: 800 !important;
-        line-height: 1.3 !important;
-        white-space: nowrap !important;
-    }
-
-    /* 버튼은 이제 .logo 안에서 flex로 자연스럽게 옆에 붙음 → 별도 고정 불필요 */
-    .logo-switches,
-    .theme-toggle {
-        position: static !important;
-        margin: 0 !important;
-    }
-
-    /* -------------------- 카테고리 메뉴 박스 -------------------- */
     #menu {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         width: 200px !important;
-        gap: 6px !important;
+        gap: 1px !important;
         padding: 12px !important;
         padding-top: 20px !important;
         background: var(--entry) !important;
@@ -129,18 +128,35 @@
     }
 
     #menu a {
-        display: block !important;
-        width: 100% !important;
-        text-align: left !important;
-        font-size: 1rem !important;
-        padding: 3px 0 !important;
-        margin: 0 !important;
-        opacity: 0.85;
-    }
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 1rem !important;
+    padding: 1px 0 !important;
+    margin: 0 !important;
+    opacity: 0.85;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: inline-block !important;   /* transform이 먹으려면 inline-block 필요 */
+}
 
-    #menu a:hover {
-        opacity: 1;
-        color: var(--primary) !important;
+#menu a:hover {
+    opacity: 1;
+    color: var(--primary) !important;
+    transform: scale(1.15) !important;
+    transform-origin: left center !important;
+}
+
+    /* -------------------- 카테고리별 제목 색상 -------------------- */
+    .cat-java.entry-hint-parent          { color: #E53935 !important; }  /* red */
+    .cat-python.entry-hint-parent        { color: #FDD835 !important; }  /* yellow */
+    .cat-kotlin.entry-hint-parent        { color: #8E24AA !important; }  /* 보라색 */
+    .cat-spring.entry-hint-parent        { color: #43A047 !important; }  /* green */
+    .cat-algorithm.entry-hint-parent     { color: #1E88E5 !important; }  /* blue */
+    .cat-backend-tools.entry-hint-parent { color: #546E7A !important; }  /* 회색톤 */
+    .cat-retrospective.entry-hint-parent { color: #FF7043 !important; }  /* 주황 */
+
+    [data-theme="dark"] .cat-git.entry-hint-parent {
+        color: #E0E0E0 !important;   /* 다크모드에선 검정 대신 밝은 회색 */
     }
 
     /* -------------------- 우측 TOC -------------------- */
@@ -184,11 +200,28 @@
         text-decoration: underline;
     }
 
-    .profile-info {
-    border-top: 3px solid;
-    border-image: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335) 1;
-    padding-top: 16px;
-    margin-bottom: 24px;
+    /* -------------------- About 페이지: 사진 + 프로필 정보 가로 배치 -------------------- */
+    .profile-row {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 32px !important;
+        margin-top: 20px !important;
+    }
+
+    .profile-row .profile-photo {
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+
+    .profile-row .profile-info {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        border-left: 3px solid !important;
+        border-image: linear-gradient(to bottom, #4285F4, #34A853, #FBBC05, #EA4335) 1 !important;
+        padding-left: 20px !important;
+        margin: 0 !important;
     }
 
     .profile-info p {
@@ -210,42 +243,96 @@
         color: inherit;
     }
 
-    .profile-photo {
-    text-align: center !important;
-    }
+    /* -------------------- Projects 카드 -------------------- */
+.projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    margin-top: 24px !important;
+}
 
-    .profile-photo img {
-        margin: 0 auto !important;
-        display: inline-block !important;
-    }
+.project-card {
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    background: var(--entry) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
 
-    /* -------------------- 카테고리별 제목 색상 -------------------- */
-    .cat-java.entry-hint-parent {
-        color: #E53935 !important;   /* red */  
-    }
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
 
-    .cat-python.entry-hint-parent {
-        color: #FDD835 !important;   /* yellow */
-    }
+.project-card h3 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
 
-    .cat-kotlin.entry-hint-parent {
-        color: #8E24AA !important;   /* 보라색 */
-    }      
+.project-card .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+}
 
-    .cat-spring.entry-hint-parent {
-        color: #43A047 !important;   /* green */
-    }
+.project-card .tech-badge {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--secondary);
+}
+/* projects 섹션 목록 페이지에서만 grid 적용 */
+.projects .posts,
+.projects main.main {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+}
 
-    .cat-algorithm.entry-hint-parent {
-        color: #1E88E5 !important;   /* blue */
-    }
+.project-github {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary) !important;
+}
+.project-card {
+    position: relative !important;   /* entry-link가 카드 전체를 덮으려면 필요 */
+    cursor: pointer !important;
+    margin-bottom: 20px !important;
+}
 
-    .cat-git.entry-hint-parent {
-        color: #000000 !important;   /* black */
-    }
+.project-card .entry-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
 
-    [data-theme="dark"] .cat-git.entry-hint-parent {
-        color: #E0E0E0 !important;   /* 다크모드에선 검정 대신 밝은 회색 */
-    }
+.project-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
 
+.project-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.project-github {
+    position: relative;
+    z-index: 2;   /* entry-link보다 위에 있어야 따로 클릭됨 */
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--secondary) !important;
+}
+
+.project-github:hover {
+    color: var(--primary) !important;
+    text-decoration: underline;
+}
 }

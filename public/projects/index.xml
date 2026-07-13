@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on Samoyed Devlog</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Samoyed Devlog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enlist-Korea</title>
+      <link>http://localhost:1313/projects/enlist-korea/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/enlist-korea/</guid>
+      <description>군 입영 지원 올인원 플랫폼</description>
+    </item>
+    <item>
+      <title>Guard-up</title>
+      <link>http://localhost:1313/projects/guard-up/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/guard-up/</guid>
+      <description>RAG 기반 계약서 조항 분석 앱</description>
+    </item>
+    <item>
+      <title>PickStranger</title>
+      <link>http://localhost:1313/projects/pickstrange/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/pickstrange/</guid>
+      <description>로그인 관리 시스템</description>
+    </item>
+    <item>
+      <title>수원대 보물섬</title>
+      <link>http://localhost:1313/projects/dopamin-treasure/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/dopamin-treasure/</guid>
+      <description>수원대에서 보물찾기</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/projects/likelion-cms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/likelion-cms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/projects/walk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/walk/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

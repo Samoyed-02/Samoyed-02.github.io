@@ -1,8 +1,9 @@
 ---
 title: "[GitHub Blog] velog에서 GitHub 블로그로"
-date: 2026-07-09T22:35:00+09:00
+date: 2026-07-09
 draft: false
 summary: "velog에서 GitHub 블로그로 이전하게 된 계기와 장단점을 정리했습니다."
+categories: ["Retrospective"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
