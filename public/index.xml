@@ -6,7 +6,7 @@
     <description>Recent content on Samoyed Devlog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enlist-Korea</title>
@@ -37,38 +37,38 @@
       <description>수원대에서 보물찾기</description>
     </item>
     <item>
+      <title>[CMS] 백엔드 설계 회고</title>
+      <link>http://localhost:1313/restrospective/cms-1/</link>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/restrospective/cms-1/</guid>
+      <description>CMS 개발 회고 — 기능 명세서 → ERD → API 명세서 작성기</description>
+    </item>
+    <item>
       <title>[GitHub Blog] velog에서 GitHub 블로그로</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>http://localhost:1313/restrospective/my-first-post/</link>
       <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/restrospective/my-first-post/</guid>
       <description>velog에서 GitHub 블로그로 이전하게 된 계기와 장단점을 정리했습니다.</description>
     </item>
     <item>
-      <title>[멋쟁이사자처럼 1기] 3주차 활동에 대하여</title>
-      <link>http://localhost:1313/posts/likelion/likelion-3week/</link>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/likelion/likelion-3week/</guid>
-      <description>3주차 활동 및 미션 회고록입니다.</description>
-    </item>
-    <item>
-      <title>[멋쟁이사자처럼 1기] 2주차 활동에 대하여</title>
-      <link>http://localhost:1313/posts/likelion/likelion-2week/</link>
+      <title>왜 하필 Kotlin으로 알고리즘 공부를 시작했을까?</title>
+      <link>http://localhost:1313/posts/kotlin/open-kotlin/</link>
       <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/likelion/likelion-2week/</guid>
-      <description>2주차 활동 및 미션 회고록입니다.</description>
+      <guid>http://localhost:1313/posts/kotlin/open-kotlin/</guid>
+      <description>kotlin 공부를  시작하며&amp;hellip;</description>
     </item>
     <item>
       <title>[멋쟁이사자처럼 1기] 1주차 활동에 대하여</title>
-      <link>http://localhost:1313/posts/likelion/likelion-1week/</link>
+      <link>http://localhost:1313/restrospective/likelion/likelion-1week/</link>
       <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/likelion/likelion-1week/</guid>
+      <guid>http://localhost:1313/restrospective/likelion/likelion-1week/</guid>
       <description>1주차 활동 및 미션 회고록입니다.</description>
     </item>
     <item>
       <title>[2026 한이음] 보안 전공자가 만드는 사회 공헌: 자립 준비 청년을 위한 &#39;안심 계약 AI</title>
-      <link>http://localhost:1313/posts/guard-up-ideation/</link>
+      <link>http://localhost:1313/restrospective/guard-up-ideation/</link>
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/guard-up-ideation/</guid>
+      <guid>http://localhost:1313/restrospective/guard-up-ideation/</guid>
       <description>아이데이션 과정을 정리</description>
     </item>
     <item>
@@ -77,6 +77,27 @@
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/java/solid/</guid>
       <description>객체지향적 설계에 대한 내용을 정리해보았습니다.</description>
+    </item>
+    <item>
+      <title>[우아한테크코스 프리코스] 프리코스 1주차 미션 과정에 대하여</title>
+      <link>http://localhost:1313/restrospective/wooacourse/wooacourse-1week/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/restrospective/wooacourse/wooacourse-1week/</guid>
+      <description>우테코 1주차 회고록입니다.</description>
+    </item>
+    <item>
+      <title>[PickStranger#2] 리버스 프록시 뼈대 세우기, 그리고 핑거프린팅 미들 웨어</title>
+      <link>http://localhost:1313/restrospective/pickstranger-2/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/restrospective/pickstranger-2/</guid>
+      <description>PickStranger 뼈대부터</description>
+    </item>
+    <item>
+      <title>[PickStranger] 우리는 사람을 인증한다.</title>
+      <link>http://localhost:1313/restrospective/pickstranger-1/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/restrospective/pickstranger-1/</guid>
+      <description>PickStranger 시작</description>
     </item>
     <item>
       <title></title>

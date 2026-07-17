@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Samoyed Devlog</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Samoyed Devlog</description>
+    <title>Kotlin on Samoyed Devlog</title>
+    <link>http://localhost:1313/categories/kotlin/</link>
+    <description>Recent content in Kotlin on Samoyed Devlog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>왜 하필 Kotlin으로 알고리즘 공부를 시작했을까?</title>
       <link>http://localhost:1313/posts/kotlin/open-kotlin/</link>
       <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/kotlin/open-kotlin/</guid>
       <description>kotlin 공부를  시작하며&amp;hellip;</description>
-    </item>
-    <item>
-      <title>객체지향적 설계란</title>
-      <link>http://localhost:1313/posts/java/solid/</link>
-      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/java/solid/</guid>
-      <description>객체지향적 설계에 대한 내용을 정리해보았습니다.</description>
     </item>
   </channel>
 </rss>
