@@ -1,6 +1,6 @@
 ---
 title: "Kotlin 노트 [ 1 ]"
-date: 2026-04-04
+date: 2026-04-10
 draft: false
 summary: "코틀린 문법 실수와 헷갈렸던 개념들을 정리해봅니다."
 categories: ["kotlin"]
