@@ -51,6 +51,13 @@
       <description>velog에서 GitHub 블로그로 이전하게 된 계기와 장단점을 정리했습니다.</description>
     </item>
     <item>
+      <title>Kotlin 노트 [ 1 ]</title>
+      <link>http://localhost:1313/posts/kotlin/basic-note-1/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kotlin/basic-note-1/</guid>
+      <description>코틀린 문법 실수와 헷갈렸던 개념들을 정리해봅니다.</description>
+    </item>
+    <item>
       <title>왜 하필 Kotlin으로 알고리즘 공부를 시작했을까?</title>
       <link>http://localhost:1313/posts/kotlin/open-kotlin/</link>
       <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
