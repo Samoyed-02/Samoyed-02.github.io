@@ -36,13 +36,22 @@
     <lastmod>2026-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/kotlin/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/kotlin/basic-note-2/</loc>
+    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/kotlin/basic-note-1/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/restrospective/likelion/likelion-3week/</loc>
+    <lastmod>2026-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/restrospective/likelion/likelion-2week/</loc>
+    <lastmod>2026-04-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/kotlin/open-kotlin/</loc>
     <lastmod>2026-04-04T00:00:00+00:00</lastmod>
@@ -67,8 +76,6 @@
   </url><url>
     <loc>http://localhost:1313/restrospective/pickstranger-1/</loc>
     <lastmod>2025-03-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/kotlin/basic-note-2/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/likelion-cms/</loc>
   </url><url>

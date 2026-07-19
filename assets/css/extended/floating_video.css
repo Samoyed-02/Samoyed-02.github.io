@@ -1,0 +1,40 @@
+ .floating-video-wrap {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 220px;
+  z-index: 999;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  line-height: 0;
+}
+
+.floating-video-wrap video {
+  width: 100%;
+  display: block;
+}
+
+.floating-video-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .floating-video-wrap {
+    width: 140px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
