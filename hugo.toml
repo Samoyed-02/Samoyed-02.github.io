@@ -2,6 +2,7 @@ baseURL = 'https://samoyed-02.github.io/'
 languageCode = 'ko-kr'
 title = 'Samoyed Devlog'
 theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -34,7 +35,6 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
 - **[남한산성 관광 앱](/projects/namhansanseong/)** — FastAPI + PostGIS + Kakao Maps 연동 여행 서비스
 """
 
-
 # 요청하신 카테고리 구성 (우측 상단 바에서 좌측 사이드바로 이동시킬 대상)
 [[menu.main]]
     name = "Java"
@@ -47,13 +47,13 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
     weight = 20
 
 [[menu.main]]
-    name = "Python"
-    url = "/categories/python/"
+    name = "Spring"
+    url = "/categories/spring/"
     weight = 30
 
 [[menu.main]]
-    name = "Spring"
-    url = "/categories/spring/"
+    name = "CS"
+    url = "/categories/cs/"
     weight = 40
 
 [[menu.main]]
