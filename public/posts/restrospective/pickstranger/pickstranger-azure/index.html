@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[PickStranger] Azure 배포 설정 기록 | Samoyed Devlog</title>
+<meta name="keywords" content="">
+<meta name="description" content="PickStranger Azure 배포 설정 기록입니다.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/restrospective/pickstranger/pickstranger-azure/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.14d8e6846df0548ca85ac5ddb146162c15df95958ac11dc2a6d83caad77a6ddc.css" integrity="sha256-FNjmhG3wVIyoWsXdsUYWLBXflZWKwR3Cptg8qtd6bdw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/restrospective/pickstranger/pickstranger-azure/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/posts/restrospective/pickstranger/pickstranger-azure/">
+  <meta property="og:site_name" content="Samoyed Devlog">
+  <meta property="og:title" content="[PickStranger] Azure 배포 설정 기록">
+  <meta property="og:description" content="PickStranger Azure 배포 설정 기록입니다.">
+  <meta property="og:locale" content="ko_kr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-07-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-15T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[PickStranger] Azure 배포 설정 기록">
+  <meta name="twitter:description" content="PickStranger Azure 배포 설정 기록입니다.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[PickStranger] Azure 배포 설정 기록",
+      "item": "http://localhost:1313/posts/restrospective/pickstranger/pickstranger-azure/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[PickStranger] Azure 배포 설정 기록",
+  "name": "[PickStranger] Azure 배포 설정 기록",
+  "description": "PickStranger Azure 배포 설정 기록입니다.",
+  "keywords": [
+    
+  ],
+  "articleBody": " 작성일: 2026-07-16 목적 : Azure VM 최초 설정 과정 기록 배포 방식: 단일 VM + Docker Compose (revproxy + AI 서버 + Redis + MySQL)\n1. 전체 배포 전략 방식 : 단일 Azure VM에 Docker Compose로 전체 스택(rev proxy, AI gRPC 서버, Redis, MySQL) 한번에 구동 이유: 프로젝트 규모, 기존 docker-compose 구성 그대로 재사용 가능, 관리 리소스 대비 비용 절감 비용 제약 : Azure for Students 크레딧 $100, 사용 기간 2 ~ 3 개월 2. VM 생성 — 기본 사항 항목 설정값 비고 구독 Azure for Students 리소스 그룹 PickStranger (신규 생성) VM 이름 LazyPotato 지역 Korea Central → 변경 필요 (아래 6번 참고) Students 구독 정책상 배포 제한 발생 이미지 Ubuntu Server 24.04 LTS - x64 Gen2 22.04 대신 24.04도 문제 없음 VM 아키텍처 x64 Arm64는 크로스 컴파일 이슈 우려로 제외 보안 유형 신뢰할 수 있는 시작 가상 머신 (Trusted Launch) 기본값 유지, 추가 비용 없음 3. VM 크기 선택 최초 추천값 Standard_D2s_v3 ($89.79/월)는 과함 → 변경\n후보 vCPU / RAM 월비용(24h 기준) 채택 여부 D2s_v3 (기본 추천값) 2 / 8GiB $89.79 ❌ 크레딧 소모 너무 빠름 B2ats_v2 (무료 서비스 적격) 2 / 1GiB $8.54 ❌ RAM 부족 (MySQL+Redis+AI서버 OOM 위험) B2als_v2 2 / 4GiB $34.16 ✅ 채택 B2ls_v2 2 / 4GiB $37.96 ❌ 동일 스펙에 더 비쌈 B2s_v2 2 / 8GiB $75.92 ❌ 과함 선택 이유: Go rev proxy(수십MB) + Redis(수백MB) + MySQL(200400MB) + Python AI서버(XGBoost 로딩 시 최대 1GB) 합산 시 4GB가 적정선. 실제로는 자동 종료 + 수동 중지 습관화하면 월 $510 수준으로 운용 가능.\n4. 비용 관리 전략 핵심 원리 Azure VM 은 “중지” 상태에서는 컴퓨팅 비용이 0원. 디스크 보관비만 남음.\n설정할 것 자동 종료(Auto-shutdown) — VM “관리” 탭 또는 생성 후 좌측 메뉴에서 설정 종료 시간: 새벽 3시 시단대: Seoul 종료 전 알림 반드시 체크 예산 알림 — “비용 관리 + 청구” → “예산” → $70 , $90 단계 이메일 알림 설정 최대 절전 모드(Hibernation)는 사용 안함 Trust Launch 보안 유형과 상충되어 비활성화됨(정상) 어차피 컨테이너 재시각이 몇십 초 수준이라 절전모드로 얻는 이득이 적음 RAM 크기만큼 디스크를 추가로 잡아먹어 오히려 비효율적 5. 관리자 계정 / SSH 설정 항목 설정값 비고 인증 형식 SSH 공개 키 비밀번호 인증보다 안전 사용자 이름 azureuser SSH 키 유형 RSA → Ed25519 권장 짧은 키로 동등 이상 보안, 최신 OpenSSH 기본 권장 키 쌍 이름 LazyPotato_key ⚠️ .pem 키 파일은 재발급 불가. 분실 시 VM 재생성 필요. 6. 네트워킹 / 포트 생성 시점 인바운드 포트: SSH(22)만 허용 (기본값 유지) rev proxy 포트(9000)는 이 단계에서 추가하지 않음 → VM 생성 후 별도로 NSG에서 개별 설정 향후 강화할 것 22번 포트를 “모든 IP 허용” → 내 고정 공인 IP만 허용하도록 NSG 규칙 수정 외부 노출은 rev proxy 포트(9000)만, Redis/MySQL/gRPC 포트는 절대 외부 노출 금지 (컨테이너 내부 네트워크로만 통신) 공개 IP — 반드시 확인할 것 ⚠️ 기본값이 “동적(Dynamic)“이면 VM을 중지 후 재시작할 때 IP가 바뀔 수 있음 “네트워킹” 탭에서 공개 IP를 “고정(Static)“으로 설정 필요 → OAuth2 리다이렉트 URI, 접속 URL 안정성 확보 ",
+  "wordCount" : "478",
+  "inLanguage": "en",
+  "datePublished": "2026-07-15T00:00:00Z",
+  "dateModified": "2026-07-15T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/restrospective/pickstranger/pickstranger-azure/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Samoyed Devlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Samoyed Devlog (Alt + H)">Samoyed Devlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/categories/java/" title="Java">
+                    <span>Java</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/kotlin/" title="Kotlin">
+                    <span>Kotlin</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/python/" title="Python">
+                    <span>Python</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/spring/" title="Spring">
+                    <span>Spring</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/algorithm/" title="Algorithm">
+                    <span>Algorithm</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/backend-tools/" title="Backend &amp; Tools">
+                    <span>Backend &amp; Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/retrospective/" title="회고">
+                    <span>회고</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      [PickStranger] Azure 배포 설정 기록
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-15 00:00:00 +0000 UTC'>2026년 7월 15일</span>
+
+</div>
+  </header> <details class="toc"  open>
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#1--%ec%a0%84%ec%b2%b4-%eb%b0%b0%ed%8f%ac-%ec%a0%84%eb%9e%b5" aria-label="1.  전체 배포 전략">1.  전체 배포 전략</a></li>
+            <li>
+                <a href="#2-vm-%ec%83%9d%ec%84%b1--%ea%b8%b0%eb%b3%b8-%ec%82%ac%ed%95%ad" aria-label="2. VM 생성 — 기본 사항">2. VM 생성 — 기본 사항</a></li>
+            <li>
+                <a href="#3-vm-%ed%81%ac%ea%b8%b0-%ec%84%a0%ed%83%9d" aria-label="3. VM 크기 선택">3. VM 크기 선택</a></li>
+            <li>
+                <a href="#4-%eb%b9%84%ec%9a%a9-%ea%b4%80%eb%a6%ac-%ec%a0%84%eb%9e%b5" aria-label="4. 비용 관리 전략">4. 비용 관리 전략</a><ul>
+                    <ul>
+                    
+            <li>
+                <a href="#%ed%95%b5%ec%8b%ac-%ec%9b%90%eb%a6%ac" aria-label="핵심 원리">핵심 원리</a></li>
+            <li>
+                <a href="#%ec%84%a4%ec%a0%95%ed%95%a0-%ea%b2%83" aria-label="설정할 것">설정할 것</a></li></ul>
+                </ul>
+            </li>
+            <li>
+                <a href="#5-%ea%b4%80%eb%a6%ac%ec%9e%90-%ea%b3%84%ec%a0%95--ssh-%ec%84%a4%ec%a0%95" aria-label="5. 관리자 계정 / SSH 설정">5. 관리자 계정 / SSH 설정</a><ul>
+                    <ul>
+                    
+            <li>
+                <a href="#pem-%ed%82%a4-%ed%8c%8c%ec%9d%bc%ec%9d%80-%ec%9e%ac%eb%b0%9c%ea%b8%89-%eb%b6%88%ea%b0%80-%eb%b6%84%ec%8b%a4-%ec%8b%9c-vm-%ec%9e%ac%ec%83%9d%ec%84%b1-%ed%95%84%ec%9a%94" aria-label="⚠️ .pem 키 파일은 재발급 불가. 분실 시 VM 재생성 필요.">⚠️ .pem 키 파일은 재발급 불가. 분실 시 VM 재생성 필요.</a></li></ul>
+                </ul>
+            </li>
+            <li>
+                <a href="#6--%eb%84%a4%ed%8a%b8%ec%9b%8c%ed%82%b9--%ed%8f%ac%ed%8a%b8" aria-label="6.  네트워킹 / 포트">6.  네트워킹 / 포트</a><ul>
+                    
+            <li>
+                <a href="#%ec%83%9d%ec%84%b1-%ec%8b%9c%ec%a0%90" aria-label="생성 시점">생성 시점</a></li>
+            <li>
+                <a href="#%ed%96%a5%ed%9b%84-%ea%b0%95%ed%99%94%ed%95%a0-%ea%b2%83" aria-label="향후 강화할 것">향후 강화할 것</a></li>
+            <li>
+                <a href="#%ea%b3%b5%ea%b0%9c-ip--%eb%b0%98%eb%93%9c%ec%8b%9c-%ed%99%95%ec%9d%b8%ed%95%a0-%ea%b2%83-" aria-label="공개 IP — 반드시 확인할 것 ⚠️">공개 IP — 반드시 확인할 것 ⚠️</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><blockquote>
+<p>작성일: 2026-07-16 목적 : Azure VM 최초 설정 과정 기록 배포 방식:                                                  단일 VM + Docker Compose (revproxy + AI 서버 + Redis + MySQL)</p>
+</blockquote>
+<h2 id="1--전체-배포-전략">1.  전체 배포 전략<a hidden class="anchor" aria-hidden="true" href="#1--전체-배포-전략">#</a></h2>
+<ul>
+<li>방식 : 단일 Azure VM에 Docker Compose로 전체 스택(rev proxy, AI gRPC 서버, Redis, MySQL) 한번에 구동</li>
+<li>이유: 프로젝트 규모, 기존 docker-compose 구성 그대로 재사용 가능, 관리 리소스 대비 비용 절감</li>
+<li>비용 제약 : Azure for Students 크레딧 $100, 사용 기간 2 ~ 3 개월</li>
+</ul>
+<hr>
+<h2 id="2-vm-생성--기본-사항">2. VM 생성 — 기본 사항<a hidden class="anchor" aria-hidden="true" href="#2-vm-생성--기본-사항">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>항목</th>
+					<th>설정값</th>
+					<th>비고</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>구독</td>
+					<td>Azure for Students</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>리소스 그룹</td>
+					<td>PickStranger (신규 생성)</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>VM 이름</td>
+					<td>LazyPotato</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>지역</td>
+					<td><del>Korea Central</del> → <strong>변경 필요 (아래 6번 참고)</strong></td>
+					<td>Students 구독 정책상 배포 제한 발생</td>
+			</tr>
+			<tr>
+					<td>이미지</td>
+					<td>Ubuntu Server 24.04 LTS - x64 Gen2</td>
+					<td>22.04 대신 24.04도 문제 없음</td>
+			</tr>
+			<tr>
+					<td>VM 아키텍처</td>
+					<td>x64</td>
+					<td>Arm64는 크로스 컴파일 이슈 우려로 제외</td>
+			</tr>
+			<tr>
+					<td>보안 유형</td>
+					<td>신뢰할 수 있는 시작 가상 머신 (Trusted Launch)</td>
+					<td>기본값 유지, 추가 비용 없음</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="3-vm-크기-선택">3. VM 크기 선택<a hidden class="anchor" aria-hidden="true" href="#3-vm-크기-선택">#</a></h2>
+<p><strong>최초 추천값 Standard_D2s_v3 ($89.79/월)는 과함 → 변경</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th>후보</th>
+					<th>vCPU / RAM</th>
+					<th>월비용(24h 기준)</th>
+					<th>채택 여부</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>D2s_v3 (기본 추천값)</td>
+					<td>2 / 8GiB</td>
+					<td>$89.79</td>
+					<td>❌ 크레딧 소모 너무 빠름</td>
+			</tr>
+			<tr>
+					<td>B2ats_v2 (무료 서비스 적격)</td>
+					<td>2 / 1GiB</td>
+					<td>$8.54</td>
+					<td>❌ RAM 부족 (MySQL+Redis+AI서버 OOM 위험)</td>
+			</tr>
+			<tr>
+					<td><strong>B2als_v2</strong></td>
+					<td>2 / 4GiB</td>
+					<td><strong>$34.16</strong></td>
+					<td>✅ <strong>채택</strong></td>
+			</tr>
+			<tr>
+					<td>B2ls_v2</td>
+					<td>2 / 4GiB</td>
+					<td>$37.96</td>
+					<td>❌ 동일 스펙에 더 비쌈</td>
+			</tr>
+			<tr>
+					<td>B2s_v2</td>
+					<td>2 / 8GiB</td>
+					<td>$75.92</td>
+					<td>❌ 과함</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>선택 이유</strong>: Go rev proxy(수십MB) + Redis(수백MB) + MySQL(200<del>400MB) + Python AI서버(XGBoost 로딩 시 최대 1GB) 합산 시 4GB가 적정선. 실제로는 자동 종료 + 수동 중지 습관화하면 월 $5</del>10 수준으로 운용 가능.</p>
+<hr>
+<h2 id="4-비용-관리-전략">4. 비용 관리 전략<a hidden class="anchor" aria-hidden="true" href="#4-비용-관리-전략">#</a></h2>
+<h4 id="핵심-원리">핵심 원리<a hidden class="anchor" aria-hidden="true" href="#핵심-원리">#</a></h4>
+<p>Azure VM 은 “중지” 상태에서는 컴퓨팅 비용이 0원. 디스크 보관비만 남음.</p>
+<h4 id="설정할-것">설정할 것<a hidden class="anchor" aria-hidden="true" href="#설정할-것">#</a></h4>
+<ol>
+<li>자동 종료(Auto-shutdown) — VM “관리” 탭 또는 생성 후 좌측 메뉴에서 설정
+<ul>
+<li>종료 시간: 새벽 3시</li>
+<li>시단대:  Seoul</li>
+<li>종료 전 알림 반드시 체크</li>
+</ul>
+</li>
+<li>예산 알림 — “비용 관리 + 청구” → “예산” → $70 , $90 단계 이메일 알림 설정</li>
+<li>최대 절전 모드(Hibernation)는 사용 안함
+<ul>
+<li>Trust Launch 보안 유형과 상충되어 비활성화됨(정상)</li>
+<li>어차피 컨테이너 재시각이 몇십 초 수준이라 절전모드로 얻는 이득이 적음</li>
+<li>RAM 크기만큼 디스크를 추가로 잡아먹어 오히려 비효율적</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="5-관리자-계정--ssh-설정">5. 관리자 계정 / SSH 설정<a hidden class="anchor" aria-hidden="true" href="#5-관리자-계정--ssh-설정">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>항목</th>
+					<th>설정값</th>
+					<th>비고</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>인증 형식</td>
+					<td>SSH 공개 키</td>
+					<td>비밀번호 인증보다 안전</td>
+			</tr>
+			<tr>
+					<td>사용자 이름</td>
+					<td>azureuser</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>SSH 키 유형</td>
+					<td>RSA → <strong>Ed25519 권장</strong></td>
+					<td>짧은 키로 동등 이상 보안, 최신 OpenSSH 기본 권장</td>
+			</tr>
+			<tr>
+					<td>키 쌍 이름</td>
+					<td>LazyPotato_key</td>
+					<td></td>
+			</tr>
+	</tbody>
+</table>
+<h4 id="pem-키-파일은-재발급-불가-분실-시-vm-재생성-필요">⚠️ <code>.pem</code> 키 파일은 재발급 불가. 분실 시 VM 재생성 필요.<a hidden class="anchor" aria-hidden="true" href="#pem-키-파일은-재발급-불가-분실-시-vm-재생성-필요">#</a></h4>
+<hr>
+<h2 id="6--네트워킹--포트">6.  네트워킹 / 포트<a hidden class="anchor" aria-hidden="true" href="#6--네트워킹--포트">#</a></h2>
+<h3 id="생성-시점">생성 시점<a hidden class="anchor" aria-hidden="true" href="#생성-시점">#</a></h3>
+<ul>
+<li>인바운드 포트: <strong>SSH(22)만 허용</strong> (기본값 유지)</li>
+<li>rev proxy 포트(9000)는 이 단계에서 추가하지 않음 → VM 생성 후 별도로 NSG에서 개별 설정</li>
+</ul>
+<h3 id="향후-강화할-것">향후 강화할 것<a hidden class="anchor" aria-hidden="true" href="#향후-강화할-것">#</a></h3>
+<ul>
+<li>22번 포트를 &ldquo;모든 IP 허용&rdquo; → 내 고정 공인 IP만 허용하도록 NSG 규칙 수정</li>
+<li>외부 노출은 rev proxy 포트(9000)만, Redis/MySQL/gRPC 포트는 절대 외부 노출 금지 (컨테이너 내부 네트워크로만 통신)</li>
+</ul>
+<h3 id="공개-ip--반드시-확인할-것-">공개 IP — 반드시 확인할 것 ⚠️<a hidden class="anchor" aria-hidden="true" href="#공개-ip--반드시-확인할-것-">#</a></h3>
+<ul>
+<li>기본값이 &ldquo;동적(Dynamic)&ldquo;이면 VM을 중지 후 재시작할 때 IP가 바뀔 수 있음</li>
+<li><strong>&ldquo;네트워킹&rdquo; 탭에서 공개 IP를 &ldquo;고정(Static)&ldquo;으로 설정</strong> 필요 → OAuth2 리다이렉트 URI, 접속 URL 안정성 확보</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Samoyed Devlog</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><div class="top-right-nav">
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="https://github.com/Samoyed-02" target="_blank" rel="noopener noreferrer">GitHub</a>
+</div>
+
+<div class="floating-video-wrap" id="floatingVideo">
+  <video autoplay muted loop playsinline>
+    <source src="/videos/intro.mp4" type="video/mp4">
+  </video>
+</div>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
