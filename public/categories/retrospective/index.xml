@@ -6,13 +6,20 @@
     <description>Recent content in Retrospective on Samoyed Devlog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/retrospective/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[CMS 개발기 #1] 관리자 일정 등록/수정/삭제 API</title>
+      <link>http://localhost:1313/posts/restrospective/cms/cms-dev-1/</link>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/restrospective/cms/cms-dev-1/</guid>
+      <description>CMS 개발 회고 &amp;ndash; 확정된 줄 알았던 정책이 두 번 뒤집힌 이야기</description>
+    </item>
+    <item>
       <title>[CMS] 백엔드 설계 회고</title>
-      <link>http://localhost:1313/posts/restrospective/cms-1/</link>
+      <link>http://localhost:1313/posts/restrospective/cms/cms-1/</link>
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/restrospective/cms-1/</guid>
+      <guid>http://localhost:1313/posts/restrospective/cms/cms-1/</guid>
       <description>CMS 개발 회고 — 기능 명세서 → ERD → API 명세서 작성기</description>
     </item>
     <item>

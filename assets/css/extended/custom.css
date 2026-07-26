@@ -148,7 +148,7 @@
 
     /* -------------------- 카테고리별 제목 색상 -------------------- */
     .cat-java.entry-hint-parent          { color: #E53935 !important; }  /* red */
-    .cat-python.entry-hint-parent        { color: #FDD835 !important; }  /* yellow */
+    .cat-cs.entry-hint-parent            { color: #FDD835 !important; }  /* yellow */
     .cat-kotlin.entry-hint-parent        { color: #8E24AA !important; }  /* 보라색 */
     .cat-spring.entry-hint-parent        { color: #43A047 !important; }  /* green */
     .cat-algorithm.entry-hint-parent     { color: #1E88E5 !important; }  /* blue */
