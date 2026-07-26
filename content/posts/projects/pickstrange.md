@@ -4,6 +4,7 @@ date: 2026-06-01
 summary: "로그인 관리 시스템"
 techStack: ["ReverseProxy", "depedancy", "Machine Leaning", "Go", "AI"]
 githubUrl: "https://github.com/PickStranger"
+categories: ["Projects"]
 weight: 10
 ---
 
