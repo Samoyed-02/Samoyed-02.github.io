@@ -1,7 +1,12 @@
 baseURL = 'https://samoyed-02.github.io/'
 languageCode = 'ko-kr'
 title = 'Samoyed Devlog'
-theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
+theme = 'hugo-theme-stack'
+paginate = 5
+enableRobotsTXT = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [markup]
   [markup.goldmark]
@@ -9,69 +14,87 @@ theme = 'PaperMod' # 다시 검증된 PaperMod로 고정
       unsafe = true
 
 [params]
-    env = "production"
-    description = "백엔드 개발 및 보안 기록 블로그"
-    
-    # 우측 목차(TOC) 기본 활성화
-    ShowToc = true
-    TocOpen = true
-    showCodeCopyButtons = true
-    mainSections = ["posts"]
+  favicon = "img/favicon.png"
+  mainSections = ["posts"]
+  rssFullContent = true
 
-[params.homeInfoParams]
-  Title = "구경하다 가세요, 저도 아직 배우는 중이거든요 👋"
-  Content = """
-안정적인 서비스를 만들기 위해 동시성 처리와 장애 대응까지 고민하는 4학년 백엔드 개발자입니다.
+  [params.footer]
+    since = 2026
+    customText = ""
 
-### 🛠 기술 스택
-- **Language**: Kotlin, Java, Python
-- **Framework**: Spring Boot, Django, FastAPI
-- **DB**: PostgreSQL, Redis
-- **Tools**: Git, Docker
+  [params.dateFormat]
+    published = "Jan 02, 2006"
+    lastUpdated = "Jan 02, 2006 15:04"
 
-### 📌 주요 프로젝트
-- **[Guard-up](/projects/guard-up/)** — RAG 기반 계약서 조항 분석 앱 (CLOVA OCR, KLUE-NER, GPT-4o)
-- **[PickStranger](/projects/pickstranger/)** — gRPC 기반 로그인 위험도 분석 리버스 프록시
-- **[남한산성 관광 앱](/projects/namhansanseong/)** — FastAPI + PostGIS + Kakao Maps 연동 여행 서비스
-"""
+  [params.sidebar]
+    subtitle = "백엔드 개발 및 보안 기록 블로그"
+    avatar = "img/avatar.jpg"
 
-# 요청하신 카테고리 구성 (우측 상단 바에서 좌측 사이드바로 이동시킬 대상)
-[[menu.main]]
-    name = "Java"
-    url = "/categories/java/"
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+
+    [params.article.license]
+      enabled = false
+
+  [params.comments]
+    enabled = false
+
+  [[params.widgets.homepage]]
+    type = "search"
+
+  [[params.widgets.homepage]]
+    type = "categories"
+    [params.widgets.homepage.params]
+      limit = 10
+
+  [[params.widgets.homepage]]
+    type = "archives"
+    [params.widgets.homepage.params]
+      limit = 5
+
+  [[params.widgets.homepage]]
+    type = "tag-cloud"
+    [params.widgets.homepage.params]
+      limit = 10
+
+  [[params.widgets.page]]
+    type = "toc"
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
     weight = 10
 
-[[menu.main]]
-    name = "Kotlin"
-    url = "/categories/kotlin/"
-    weight = 20
-
-[[menu.main]]
-    name = "Spring"
-    url = "/categories/spring/"
-    weight = 30
-
-[[menu.main]]
-    name = "CS"
-    url = "/categories/cs/"
-    weight = 40
-
-[[menu.main]]
-    name = "Algorithm"
-    url = "/categories/algorithm/"
-    weight = 50
-
-[[menu.main]]
-    name = "Backend & Tools"
-    url = "/categories/backend-tools/"
-    weight = 60
-
-[[menu.main]]
-    name = "회고"
-    url = "/categories/retrospective/"
-    weight = 70
-
-[[menu.main]]
+  [[menu.main]]
+    identifier = "projects"
     name = "Projects"
     url = "/projects/"
-    weight = 80
+    weight = 20
+
+  [[menu.social]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/Samoyed-02"
+    [menu.social.params]
+      icon = "brand-github"
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 200
