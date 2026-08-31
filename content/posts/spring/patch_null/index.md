@@ -1,5 +1,5 @@
 ---
-title: "PATCH에서 "안 보냄"과 "null 보냄"을 구분하기"
+title: "PATCH에서 안 보냄과 null 보냄을 구분하기"
 date: 2026-07-13
 draft: false
 summary: "@JsonSetter + provided 플래그"
