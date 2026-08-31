@@ -85,6 +85,12 @@ enableRobotsTXT = true
     url = "https://github.com/Samoyed-02"
     [menu.social.params]
       icon = "brand-github"
+    
+[[menu.main]]
+    identifier = "travel"
+    name = "Travel"
+    url = "/travel/"
+    weight = 25
 
 [related]
   includeNewer = true
