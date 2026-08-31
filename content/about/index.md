@@ -5,7 +5,7 @@ hidemeta: false
 disableShare: true
 ---
 
-## 오늘도 뭔가 하나는 배웠을 겁니다.
+## 문제를 데이터로 검증하고, 안정적인 서버 구조로 개선하는 엔지니어입니다.
 
 <div class="profile-row">
 
