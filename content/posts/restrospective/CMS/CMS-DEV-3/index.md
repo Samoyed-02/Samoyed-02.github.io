@@ -1,10 +1,11 @@
 ---
-title: ""조회 API를 추가하자"가 항상 답은 아니다"
+title: " 조회 API를 추가하자 가 항상 답은 아니다"
 date: 2026-08-05
 draft: false
 summary: "Redis 저장 방식 문제"
 categories: ["Retrospective"]
 tags: ["Redis", "트러블슈팅", "팀프로젝트"]
+image : "likelion_home.png"
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
