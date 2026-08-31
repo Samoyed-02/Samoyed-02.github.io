@@ -22,9 +22,13 @@ OAuth2 로그인 시 발생할 수 있는 계정 연쇄 탈취 문제를 막기 
 ### Skills 🛠️
 
 ✦ Go, Kotlin, Java, Python
+
 ✦ MySQL, Redis
+
 ✦ Scikit-learn, TensorFlow
+
 ✦ gRPC, REST API
+
 ✦ Docker Compose, Terraform, AWS EC2
 
 ## 보안 미들웨어 개발 🔒
