@@ -6,6 +6,7 @@ techStack: ["ReverseProxy", "depedancy", "Machine Leaning", "Go", "AI", "g6" , "
 githubUrl: "https://github.com/PickStranger"
 categories: ["Projects"]
 tag : ["gRPC", "인증", "팀프로젝트", "리버스프록시"]
+image : "grafana.png"
 weight: 10
 showToc: true 
 ---
