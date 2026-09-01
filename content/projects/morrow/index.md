@@ -34,7 +34,7 @@ Skills 🛠️
 
 ![Morrow화면](/morrow3.png)
 
-백엔드 개발 & 트러블슈팅 🔒
+백엔드 개발 & 트러블슈팅 💻
 ChromaDB v1 → v2 마이그레이션 대응
 AS-IS
 
