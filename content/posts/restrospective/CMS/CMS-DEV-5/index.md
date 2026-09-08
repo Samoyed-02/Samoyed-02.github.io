@@ -5,6 +5,7 @@ draft: false
 summary: "통합테스트 과정 로컬 로그인 문제"
 categories: ["Retrospective"]
 tags: ["OAuth", "카카오로그인", "트러블슈팅"]
+image : "likelion_home.png"
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---

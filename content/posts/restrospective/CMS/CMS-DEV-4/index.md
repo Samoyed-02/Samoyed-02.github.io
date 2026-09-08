@@ -5,6 +5,7 @@ draft: false
 summary: "협업시 문제 가능성"
 categories: ["Retrospective"]
 tags: ["Git", "충돌해결", "팀프로젝트"]
+image : "likelion_home.png"
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
