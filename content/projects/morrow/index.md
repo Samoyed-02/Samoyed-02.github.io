@@ -5,7 +5,7 @@ summary: "AI 팀원 기반 글로벌 협업 플랫폼"
 techStack: ["Java", "SpringBoot", "MySQL", "ChromaDB", "OpenAI API", "Notion API","Google OAuth2", "Docker","Railway","Gabia Cloud"]
 githubUrl: "https://github.com/zeeonii/PENG"
 categories: ["Projects"]
-tag : ["Spring Boot","OAuth2","팀프로젝트","AI","배포"]
+tags: ["Spring Boot","OAuth2","팀프로젝트","AI","배포"]
 image : "morrow2.png"
 weight: 10
 showToc: true 
