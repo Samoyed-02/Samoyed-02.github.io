@@ -28,7 +28,7 @@ enableRobotsTXT = true
 
   [params.sidebar]
     subtitle = "백엔드 개발 및 보안 기록 블로그"
-    avatar = "img/avatar.jpg"
+    avatar = "img/avatar.png"
 
   [params.article]
     math = false
