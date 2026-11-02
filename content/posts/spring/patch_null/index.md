@@ -4,7 +4,7 @@ date: 2026-07-13
 draft: false
 summary: "@JsonSetter + provided 플래그"
 categories: ["Spring"]
-tags: ["QueryDSL", "JPA", "쿼리최적화"]
+tags: ["Jackson", "PATCH", "API설계"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---

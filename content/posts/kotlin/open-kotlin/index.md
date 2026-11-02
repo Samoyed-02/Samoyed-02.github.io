@@ -4,6 +4,7 @@ date: 2026-04-04
 draft: false
 summary: "kotlin 공부를  시작하며..."
 categories: ["kotlin"]
+tags: ["Kotlin", "알고리즘", "학습기록"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---

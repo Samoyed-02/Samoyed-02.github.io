@@ -4,6 +4,7 @@ date: 2026-04-10
 draft: false
 summary: "코틀린 문법 실수와 헷갈렸던 개념들을 정리해봅니다."
 categories: ["kotlin"]
+tags: ["Kotlin", "알고리즘", "학습기록"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---

@@ -4,7 +4,7 @@ date: 2026-07-10
 draft: false
 summary: "where()의 null 무시 트릭"
 categories: ["Spring"]
-tags: ["Jackson", "PATCH", "API설계"]
+tags: ["QueryDSL", "JPA", "쿼리최적화"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
