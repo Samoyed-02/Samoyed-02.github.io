@@ -36,6 +36,16 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # React Bits 컴포넌트(react, motion)를 Hugo js.Build가 node_modules에서 번들링한다.
+      - name: Install npm dependencies
+        run: npm ci
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

@@ -1,0 +1,38 @@
+{{ define "main" }}
+    {{- $paginator := partial "helper/paginator.html" . -}}
+
+    {{- /* React Bits 히어로: 첫 페이지에서만 표시. JS가 없으면 정적 제목이 그대로 보인다. */ -}}
+    {{- if eq $paginator.PageNumber 1 -}}
+        {{- $hero := .Site.Params.homeHero -}}
+        {{- $title := $hero.title | default .Site.Title -}}
+        {{- $subtitle := $hero.subtitle | default .Site.Params.sidebar.subtitle -}}
+        <section id="home-hero" class="home-hero" data-title="{{ $title }}" data-subtitle="{{ $subtitle }}">
+            <div class="home-hero__content">
+                <h1 class="home-hero__title">{{ $title }}</h1>
+                {{ with $subtitle }}<p class="home-hero__subtitle">{{ . }}</p>{{ end }}
+            </div>
+        </section>
+
+        {{- $opts := dict
+            "minify" hugo.IsProduction
+            "jsx" "automatic"
+            "targetPath" "js/home-hero.js"
+            "defines" (dict "process.env.NODE_ENV" (cond hugo.IsProduction "\"production\"" "\"development\""))
+        -}}
+        {{- $script := resources.Get "react/home-hero.jsx" | js.Build $opts | fingerprint -}}
+        <script type="module" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+    {{- end -}}
+
+    <section class="article-list">
+        {{ range $index, $element := $paginator.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
