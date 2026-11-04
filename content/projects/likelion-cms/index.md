@@ -5,7 +5,7 @@ summary: "동아리 운영을 위한 통합 관리 시스템(CMS)"
 techStack: ["Java", "SpringBoot", "MySQL", "Redis","Kakao OAuth2", "AWS"]
 githubUrl: "https://github.com/Samoyed-02/likelionUSWCMS-BE"
 categories: ["Projects"]
-tag : ["Spring Boot","OAuth2","팀프로젝트","트러블슈팅","배포"]
+tags: ["Spring Boot","OAuth2","팀프로젝트","트러블슈팅","배포"]
 image : "likelion_home.png"
 weight: 10
 showToc: true 

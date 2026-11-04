@@ -5,7 +5,7 @@ summary: "군 입영 지원 올인원 플랫폼"
 techStack: ["Spring Boot", "React", "Github Action", "MySQL", "JavaScript"]
 githubUrl: "https://github.com/Enlist-Korea"
 categories: ["Projects"]
-tag : ["Spring Boot", "팀프로젝트", "백엔드리더", "군입영지원"]
+tags: ["Spring Boot", "팀프로젝트", "백엔드리더", "군입영지원"]
 image : "enlist_korea.png"
 weight: 10
 showToc: true 

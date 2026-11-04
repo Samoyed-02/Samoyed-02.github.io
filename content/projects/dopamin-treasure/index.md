@@ -5,7 +5,7 @@ summary: "시험기간 캠퍼스 보물찾기 이벤트 웹 서비스"
 techStack: ["FastAPI", "React", "Vite", "SQLite", "Railway"]
 githubUrl: "https://github.com/Samoyed-02/dopamine-treasure-backend"
 categories: ["Projects"]
-tag : 	["FastAPI", "PostGIS", "팀프로젝트", "멋쟁이사자처럼"]
+tags: ["FastAPI", "PostGIS", "팀프로젝트", "멋쟁이사자처럼"]
 image : "dopamin_intro.png"
 weight: 10
 showToc: true 

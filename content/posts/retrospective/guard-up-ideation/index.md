@@ -5,7 +5,7 @@ date: 2026-03-22
 draft: false
 summary: "아이데이션 과정을 정리"
 categories: ["Retrospective"]
-tag : ["회고", "아이디어기획", "팀프로젝트", "RAG"]
+tags: ["회고", "아이디어기획", "팀프로젝트", "RAG"]
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
