@@ -1,7 +1,7 @@
 ---
 title: "[AI Manager] Kotlin에서 List<@Valid T>로 바꾸면 경고와 함께 검증도 사라진다"
 date: 2026-11-05
-draft: true
+draft: false
 summary: "HV000271 경고를 고치려고 @Valid를 타입 인자로 옮겼더니 목록 원소 검증이 조용히 빠졌고, -Xemit-jvm-type-annotations로 해결했다."
 categories: ["Retrospective"]
 tags: ["Kotlin", "Spring Boot", "Validation", "트러블슈팅", "개인프로젝트"]
