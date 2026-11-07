@@ -6,7 +6,6 @@ draft: false
 summary: "PickStranger 뼈대부터"
 categories: ["Retrospective"]
 tags: ["gRPC", "Go", "개인프로젝트", "Circuit Breaker", "부하테스트", "k6", "Prometheus", "Grafana"]
-image : "grafana.png"
 # 특정 글에서 목차를 끄고 싶다면 false로 지정 가능 (기본은 toml 설정을 따름)
 showToc: true 
 ---
