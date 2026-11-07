@@ -6,7 +6,7 @@ techStack: ["Spring Boot", "React", "Github Action", "MySQL", "JavaScript"]
 githubUrl: "https://github.com/Enlist-Korea"
 categories: ["Projects"]
 tags: ["Spring Boot", "팀프로젝트", "백엔드리더", "군입영지원"]
-image : "enlist_korea.png"
+image : "/image/enlist-korea-intro.jpg"
 weight: 10
 showToc: true 
 ---
