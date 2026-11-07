@@ -107,9 +107,15 @@ enableRobotsTXT = true
     name = "categories"
     weight = 200
 
-# AI Manager 글은 모두 같은 표지를 쓴다. 글의 front matter에 image가 있으면 그쪽이 우선한다.
+# 프로젝트별 글은 같은 표지를 쓴다. 글의 front matter에 image가 있으면 그쪽이 우선한다.
 [[cascade]]
   [cascade.params]
     image = '/image/ai-manager-intro.jpg'
   [cascade.target]
     path = '{/posts/retrospective/ai-manager-server/**}'
+
+[[cascade]]
+  [cascade.params]
+    image = '/image/pickstranger-intro.jpg'
+  [cascade.target]
+    path = '{/posts/retrospective/pickstranger/**}'
